@@ -1,4 +1,4 @@
-package com.digitalhub.rate_engine;
+package com.digitalhub.rateengine;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
