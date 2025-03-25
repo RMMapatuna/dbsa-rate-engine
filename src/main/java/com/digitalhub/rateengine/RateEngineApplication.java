@@ -1,4 +1,4 @@
-package com.digitalhub.rate_engine;
+package com.digitalhub.rateengine;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
