@@ -8,9 +8,7 @@ import lombok.Getter;
 public enum ZoneSourceTable {
 
     COUNTRY("M_COUNTRY"),
-    CITY("M_CITY"),
-    PROVINCE("M_PROVINCE"),
-    SUBDIVISION("M_SUBDIVISION");
+    PROVINCE("M_PROVINCE");
 
     private final String tableName;
 }

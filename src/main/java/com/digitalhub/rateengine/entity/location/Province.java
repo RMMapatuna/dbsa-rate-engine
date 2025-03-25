@@ -21,7 +21,7 @@ public class Province extends MBaseEntity {
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @Column(name = "NAME", nullable = false, columnDefinition = "nvarchar(128)")
+    @Column(name = "NAME", nullable = false, columnDefinition = "nvarchar(128)", unique = true)
     private String name;
 
     @Column(name = "CODE", columnDefinition = "nvarchar(32)")
