@@ -1,6 +1,5 @@
 package com.digitalhub.rateengine.entity.location;
 
-import com.digitalhub.rateengine.constant.DomesticZoneType;
 import com.digitalhub.rateengine.entity.MBaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -28,7 +27,7 @@ public class DomesticZone extends MBaseEntity {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "ZONE_TYPE", columnDefinition = "nvarchar(64)")
-    private DomesticZoneType zoneType;
+    @ManyToOne
+    @JoinColumn(name = "FK_M_DOMESTIC_ZONE_GROUP", nullable = false)
+    private DomesticZoneGroup zoneGroup;
 }
