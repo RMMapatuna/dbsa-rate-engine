@@ -1,6 +1,6 @@
 package com.digitalhub.rateengine.entity.location;
 
-import com.digitalhub.rateengine.constant.ZoneType;
+import com.digitalhub.rateengine.constant.ShippingType;
 import com.digitalhub.rateengine.entity.MBaseEntity;
 import com.digitalhub.rateengine.entity.master.Carrier;
 import jakarta.persistence.*;
@@ -32,6 +32,6 @@ public class CarrierZoneGroupMapping extends MBaseEntity {
     private ZoneGroup zoneGroup;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "ZONE_TYPE")
-    private ZoneType zoneType;
+    @Column(name = "SHIPPING_TYPE")
+    private ShippingType shippingType;
 }

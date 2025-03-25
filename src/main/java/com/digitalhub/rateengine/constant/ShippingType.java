@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ZoneType {
+public enum ShippingType {
 
     DOMESTIC("DOMESTIC"),
     INTERNATIONAL("INTERNATIONAL");
