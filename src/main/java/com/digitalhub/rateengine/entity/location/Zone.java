@@ -12,12 +12,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "M_DOMESTIC_ZONE_GROUP")
-@SequenceGenerator(name = "M_DOMESTIC_ZONE_GROUP_SEQ_GENERATOR", sequenceName = "ID_SEQ_M_DOMESTIC_ZONE_GROUP", allocationSize = 1)
-public class DomesticZoneGroup extends MBaseEntity {
+@Table(name = "M_ZONE")
+@SequenceGenerator(name = "M_ZONE_SEQ_GENERATOR", sequenceName = "ID_SEQ_M_ZONE", allocationSize = 1)
+public class Zone extends MBaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "M_DOMESTIC_ZONE_GROUP_SEQ_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "M_ZONE_SEQ_GENERATOR")
     @Column(name = "ID", nullable = false)
     private Long id;
 
@@ -26,4 +26,8 @@ public class DomesticZoneGroup extends MBaseEntity {
 
     @Column(name = "DESCRIPTION")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "FK_M_ZONE_GROUP", nullable = false)
+    private ZoneGroup zoneGroup;
 }
