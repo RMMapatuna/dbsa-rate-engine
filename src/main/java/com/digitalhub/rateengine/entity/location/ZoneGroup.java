@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @ToString
@@ -31,4 +33,17 @@ public class ZoneGroup extends MBaseEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "SOURCE_TABLE")
     private ZoneSourceTable sourceTable;
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || this.getClass() != object.getClass()) return false;
+        ZoneGroup zoneGroup = (ZoneGroup) object;
+        return Objects.equals(id, zoneGroup.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

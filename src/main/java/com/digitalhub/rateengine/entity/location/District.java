@@ -12,12 +12,12 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "M_PROVINCE")
-@SequenceGenerator(name = "M_PROVINCE_SEQ_GENERATOR", sequenceName = "ID_SEQ_M_PROVINCE", allocationSize = 1)
-public class Province extends MBaseEntity {
+@Table(name = "M_DISTRICT")
+@SequenceGenerator(name = "M_DISTRICT_SEQ_GENERATOR", sequenceName = "ID_SEQ_M_DISTRICT", allocationSize = 1)
+public class District extends MBaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "M_PROVINCE_SEQ_GENERATOR")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "M_DISTRICT_SEQ_GENERATOR")
     @Column(name = "ID", nullable = false)
     private Long id;
 
@@ -26,8 +26,4 @@ public class Province extends MBaseEntity {
 
     @Column(name = "CODE", columnDefinition = "nvarchar(32)")
     private String code;
-
-    @ManyToOne
-    @JoinColumn(name = "FK_M_DISTRICT", nullable = false)
-    private District district;
 }
