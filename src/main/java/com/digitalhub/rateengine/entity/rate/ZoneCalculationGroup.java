@@ -23,4 +23,7 @@ public class ZoneCalculationGroup extends MBaseEntity {
 
     @Column(name = "NAME", nullable = false, columnDefinition = "nvarchar(128)", unique = true)
     private String name;
+
+    @Column(name = "DESCRIPTION")
+    private String description;
 }

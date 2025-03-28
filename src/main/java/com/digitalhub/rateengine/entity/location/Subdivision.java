@@ -24,6 +24,9 @@ public class Subdivision extends MBaseEntity {
     @Column(name = "NAME", nullable = false, columnDefinition = "nvarchar(128)")
     private String name;
 
+    @Column(name = "CODE", columnDefinition = "nvarchar(32)")
+    private String code;
+
     @Column(name = "POSTAL_CODE", columnDefinition = "nvarchar(32)")
     private String postalCode;
 

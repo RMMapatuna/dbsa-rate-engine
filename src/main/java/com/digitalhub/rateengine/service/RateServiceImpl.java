@@ -4,14 +4,14 @@ import com.digitalhub.rateengine.entity.location.Country;
 import com.digitalhub.rateengine.entity.location.Province;
 import com.digitalhub.rateengine.entity.location.Zone;
 import com.digitalhub.rateengine.entity.location.ZoneGroup;
-import com.digitalhub.rateengine.entity.master.Carrier;
+import com.digitalhub.rateengine.entity.master.Company;
 import com.digitalhub.rateengine.model.RateRequest;
 import com.digitalhub.rateengine.model.RateResponse;
-import com.digitalhub.rateengine.service.location.CarrierZoneGroupMappingService;
+import com.digitalhub.rateengine.service.location.CompanyZoneGroupMappingService;
 import com.digitalhub.rateengine.service.location.CountryService;
 import com.digitalhub.rateengine.service.location.ProvinceService;
 import com.digitalhub.rateengine.service.location.ZoneSourceMappingService;
-import com.digitalhub.rateengine.service.master.CarrierService;
+import com.digitalhub.rateengine.service.master.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +21,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class RateServiceImpl implements RateService {
 
-    private final CarrierService carrierService;
-    private final CarrierZoneGroupMappingService carrierZoneGroupMappingService;
+    private final CompanyService companyService;
+    private final CompanyZoneGroupMappingService companyZoneGroupMappingService;
     private final ProvinceService provinceService;
     private final ZoneSourceMappingService zoneSourceMappingService;
     private final CountryService countryService;
@@ -31,11 +31,11 @@ public class RateServiceImpl implements RateService {
     public RateResponse getRate(RateRequest rateRequest) {
 
         // get carrier
-        Carrier carrier = this.carrierService.getCarrier(rateRequest.getCarrier())
-                .orElseThrow(() -> new RuntimeException("Carrier not found"));
+        Company company = this.companyService.getCompany(rateRequest.getCarrier())
+                .orElseThrow(() -> new RuntimeException("Company not found"));
 
         // get zone groups for carrier
-        List<ZoneGroup> zoneGroups = this.carrierZoneGroupMappingService.getZoneGroupsByCarrierAndShippingType(carrier, rateRequest.getShippingType());
+        List<ZoneGroup> zoneGroups = this.companyZoneGroupMappingService.getZoneGroupsByCompanyAndShippingType(company, rateRequest.getShippingType());
 
         if (zoneGroups.isEmpty()) {
             throw new RuntimeException("Zones not found");

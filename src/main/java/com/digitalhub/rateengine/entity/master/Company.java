@@ -26,4 +26,7 @@ public class Company extends MBaseEntity {
 
     @Column(name = "CODE", columnDefinition = "nvarchar(32)")
     private String code;
+
+    @Column(name = "CURRENCY_CODE", nullable = false, columnDefinition = "nvarchar(6)")
+    private String currencyCode;
 }

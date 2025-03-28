@@ -45,7 +45,7 @@ public class Rate extends MBaseEntity {
     private BigDecimal baseCharge = BigDecimal.ZERO;
 
     @Column(name = "CAN_ADDITIONAL_WEIGHT_ADDED", nullable = false)
-    private Boolean active = false;
+    private Boolean canAdditionalWeightAdded = false;
 
     @Column(name = "ADDITIONAL_CHARGE_PER_KG")
     private BigDecimal additionalChargePerKg = BigDecimal.ZERO;
@@ -53,4 +53,8 @@ public class Rate extends MBaseEntity {
     @ManyToOne
     @JoinColumn(name = "FK_M_ZONE", nullable = false)
     private Zone zone;
+
+    @ManyToOne
+    @JoinColumn(name = "FK_M_RATE_CARD", nullable = false)
+    private RateCard rateCard;
 }

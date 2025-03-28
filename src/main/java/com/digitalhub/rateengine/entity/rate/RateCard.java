@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "RATE_CARD_COMPANY_MAPPING")
+@Table(name = "M_RATE_CARD")
 @SequenceGenerator(name = "M_RATE_CARD_SEQ_GENERATOR", sequenceName = "ID_SEQ_M_RATE_CARD", allocationSize = 1)
 public class RateCard extends MBaseEntity {
 
@@ -30,17 +30,17 @@ public class RateCard extends MBaseEntity {
     private String name;
 
     @Column(name = "FROM_DATE", nullable = false)
-    protected LocalDateTime fromDate;
+    private LocalDateTime fromDate;
 
     @Column(name = "TO_DATE", nullable = false)
-    protected LocalDateTime toDate;
+    private LocalDateTime toDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "SHIPPING_TYPE")
     private ShippingType shippingType;
 
     @Column(name = "IS_ORIGIN_CONSIDERED", nullable = false)
-    private Boolean active = false;
+    private Boolean originConsidered = false;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "ORIGIN_SOURCE_TABLE")
