@@ -18,8 +18,6 @@ spring:
 logging:
   level:
     web: debug
-    root: error
-    sql: error
   pattern:
     console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
     file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
@@ -31,6 +29,16 @@ spring:
   config:
     activate:
       on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/rate_engine
+    username: root
+    password: 1qaz@WSX
+
+---
+spring:
+  config:
+    activate:
+      on-profile: uat
   datasource:
     url: jdbc:mysql://localhost:3306/rate_engine
     username: root

@@ -9,4 +9,5 @@ import lombok.*;
 @ToString
 public class RateResponse {
 
+    private String rate;
 }
